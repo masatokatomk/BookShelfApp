@@ -31,6 +31,7 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
     var page: Int = 0
     
     var reloadCount: Int = 0
+    var loading: Bool = true
     
     
     override func viewDidLoad() {
@@ -126,6 +127,24 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
         
     }
     
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        
+        let currentOffsetY = scrollView.contentOffset.y
+        let maximumOffset = scrollView.contentSize.height - scrollView.frame.height
+        let distanceToBottom = maximumOffset - currentOffsetY
+        if(distanceToBottom < 500 && self.loading == true){
+            
+            if page < pageCountAll {
+                
+                self.loading = false
+                getBookData(keyWord: self.bookSearchBar.text!, pageGetBookData: page)
+                
+            }
+            
+        }
+        
+    }
+    
     func getBookData(keyWord:String, pageGetBookData:Int){
         
         let urlString = rakutenBooksApiUrlString(keyWordApi: keyWord, pageApi: pageGetBookData + 1)
@@ -163,7 +182,6 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
                         
                         if item == hits - 1 {
                             
-                            self.bookSearchTableView.reloadData()
                             print("リロードします")
                             
                             print(self.imageList[0 + 30 * (self.page - 1) ..< hits + 30 * (self.page - 1)])
@@ -186,7 +204,6 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
                     self.releaseDateList.append(json["Items"][hits - 1]["Item"]["salesDate"].string!)
                     self.isbnList.append(json["Items"][hits - 1]["Item"]["isbn"].string!)
                     
-                    self.bookSearchTableView.reloadData()
                     print("リロードします")
                     
                     print(self.imageList[0 + 30 * (self.page - 1) ..< hits + 30 * (self.page - 1)])
@@ -197,11 +214,12 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
                     print(self.isbnList[0 + 30 * (self.page - 1) ..< hits + 30 * (self.page - 1)])
                     
                 } else {
-                    
-                    self.bookSearchTableView.reloadData()
                     print("検索結果は0件です。")
                     
                 }
+                
+                self.bookSearchTableView.reloadData()
+                self.loading = true
                 
             case .failure(let error):
                 print("error", error)
@@ -209,39 +227,6 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
             }
             
         }
-        
-    }
-    
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        
-        //tableViewが一番下のcellにしたのを検知
-        if bookSearchTableView.contentOffset.y + bookSearchTableView.frame.size.height > bookSearchTableView.contentSize.height {
-            
-            if page < pageCountAll {
-                
-                Thread.sleep(forTimeInterval: 2.0)
-                
-                getBookData(keyWord: self.bookSearchBar.text!, pageGetBookData: page)
-                
-            }
-            
-        }
-        
-    }
-    
-    func rakutenBooksApiUrlString(keyWordApi: String, pageApi: Int) -> String {
-        
-        //URLに使用できない文字列があるかもしれないのでエンコードする
-        let keywordEncodeString = keyWordApi.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed)
-        
-        let booksGenreId = "001"
-        let sort = "-releaseDate"
-        let outOfStockFlag = "1"
-        let applicationId = "1055015994202844181"
-        
-        let urlString =  "https://app.rakuten.co.jp/services/api/BooksBook/Search/20170404?format=json&title=\(keywordEncodeString!)&booksGenreId=\(booksGenreId)&page=\(pageApi)&sort=\(sort)&outOfStockFlag=\(outOfStockFlag)&applicationId=\(applicationId)"
-        
-        return urlString
         
     }
     

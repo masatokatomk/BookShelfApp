@@ -18,7 +18,9 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
     @IBOutlet weak var bookSearchBar: UISearchBar!
     
     let realm = try! Realm()
-    let user = User()
+    
+    let userDefaults = UserDefaults.standard
+    var switchStatus: Bool = true
     
     var imageList: [String] = []
     var titleList: [String] = []
@@ -45,6 +47,14 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
         bookSearchBar.enablesReturnKeyAutomatically = true
         bookSearchBar.placeholder = "検索(タイトル)"
         
+        switchStatus = userDefaults.bool(forKey: "switchStatus")
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        
+        switchStatus = userDefaults.bool(forKey: "switchStatus")
+        
     }
     
     
@@ -66,9 +76,6 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "SearchCell", for: indexPath) as! SearchTableViewCell
         
-        //ハイライトを消す
-        cell.selectionStyle = .none
-        
         cell.apiImageView.sd_setImage(with: URL(string: imageList[indexPath.row]), completed: nil)
         cell.apiTitleLabel.text = titleList[indexPath.row]
         cell.apiAuthorLabel.text = authorList[indexPath.row]
@@ -89,7 +96,7 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
         do {
             
             try imageData?.write(to: savingImageUrl)
-            self.user.imageURL = savingImageUrl.absoluteString
+            
             
         } catch let error {
             
@@ -97,16 +104,23 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
             
         }
         
-        self.user.title = titleList[indexPath.row]
-        self.user.author = authorList[indexPath.row]
-        self.user.publisher = publisherList[indexPath.row]
-        self.user.releaseDate = releaseDateList[indexPath.row]
-        
         try! self.realm.write {
-            self.realm.add(self.user)
+            
+            let user = User()
+            user.imageURL = savingImageUrl.absoluteString
+            user.title = titleList[indexPath.row]
+            user.author = authorList[indexPath.row]
+            user.publisher = publisherList[indexPath.row]
+            user.releaseDate = releaseDateList[indexPath.row]
+            realm.add(user)
+            
         }
         
-        navigationController?.popToRootViewController(animated: true)
+        if switchStatus == true {
+            
+            navigationController?.popToRootViewController(animated: true)
+            
+        }
         
     }
     
@@ -238,6 +252,13 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
         publisherList.removeAll()
         releaseDateList.removeAll()
         isbnList.removeAll()
+        
+    }
+    
+    @IBAction func searchOption(_ sender: UIBarButtonItem) {
+        
+        let searchOptionVC = storyboard?.instantiateViewController(identifier: "SearchOption") as! SearchOptionTableViewController
+        navigationController?.pushViewController(searchOptionVC, animated: true)
         
     }
     

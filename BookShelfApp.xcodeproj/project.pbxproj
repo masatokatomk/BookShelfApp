@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		3927F27026EDC1D600374821 /* RakutenBooksApiUrlString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3927F26F26EDC1D600374821 /* RakutenBooksApiUrlString.swift */; };
+		3927F27426EDE52600374821 /* SearchOptionTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3927F27326EDE52600374821 /* SearchOptionTableViewController.swift */; };
+		3927F27726EE46B900374821 /* SearchOptionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3927F27526EE46B900374821 /* SearchOptionTableViewCell.swift */; };
+		3927F27826EE46B900374821 /* SearchOptionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3927F27626EE46B900374821 /* SearchOptionTableViewCell.xib */; };
 		3994D3D226DA6744007D75D7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3994D3D126DA6744007D75D7 /* AppDelegate.swift */; };
 		3994D3D426DA6744007D75D7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3994D3D326DA6744007D75D7 /* SceneDelegate.swift */; };
 		3994D3D626DA6744007D75D7 /* BookShelfViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3994D3D526DA6744007D75D7 /* BookShelfViewController.swift */; };
@@ -26,6 +29,9 @@
 /* Begin PBXFileReference section */
 		2674AEB3E9F1FE1E4A4AC1C2 /* Pods-BookShelfApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BookShelfApp.debug.xcconfig"; path = "Target Support Files/Pods-BookShelfApp/Pods-BookShelfApp.debug.xcconfig"; sourceTree = "<group>"; };
 		3927F26F26EDC1D600374821 /* RakutenBooksApiUrlString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RakutenBooksApiUrlString.swift; sourceTree = "<group>"; };
+		3927F27326EDE52600374821 /* SearchOptionTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchOptionTableViewController.swift; sourceTree = "<group>"; };
+		3927F27526EE46B900374821 /* SearchOptionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchOptionTableViewCell.swift; sourceTree = "<group>"; };
+		3927F27626EE46B900374821 /* SearchOptionTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchOptionTableViewCell.xib; sourceTree = "<group>"; };
 		3994D3CE26DA6744007D75D7 /* BookShelfApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BookShelfApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3994D3D126DA6744007D75D7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3994D3D326DA6744007D75D7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -81,9 +87,12 @@
 				3994D3D326DA6744007D75D7 /* SceneDelegate.swift */,
 				3994D3D526DA6744007D75D7 /* BookShelfViewController.swift */,
 				3994D3E926DA7684007D75D7 /* SearchViewController.swift */,
+				3927F27326EDE52600374821 /* SearchOptionTableViewController.swift */,
 				3994D3F126DBD440007D75D7 /* DetailViewController.swift */,
 				3994D3ED26DB9E11007D75D7 /* BookShelfTableViewCell.swift */,
 				3994D3EB26DB5B60007D75D7 /* SearchTableViewCell.swift */,
+				3927F27526EE46B900374821 /* SearchOptionTableViewCell.swift */,
+				3927F27626EE46B900374821 /* SearchOptionTableViewCell.xib */,
 				3994D3E526DA704F007D75D7 /* User.swift */,
 				3994D3EF26DBBBCE007D75D7 /* GetImageByUrl.swift */,
 				3927F26F26EDC1D600374821 /* RakutenBooksApiUrlString.swift */,
@@ -171,6 +180,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3927F27826EE46B900374821 /* SearchOptionTableViewCell.xib in Resources */,
 				3994D3DE26DA6748007D75D7 /* LaunchScreen.storyboard in Resources */,
 				3994D3DB26DA6748007D75D7 /* Assets.xcassets in Resources */,
 				3994D3D926DA6744007D75D7 /* Main.storyboard in Resources */,
@@ -226,9 +236,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3927F27726EE46B900374821 /* SearchOptionTableViewCell.swift in Sources */,
 				3994D3F226DBD440007D75D7 /* DetailViewController.swift in Sources */,
 				3994D3E626DA704F007D75D7 /* User.swift in Sources */,
 				3994D3D626DA6744007D75D7 /* BookShelfViewController.swift in Sources */,
+				3927F27426EDE52600374821 /* SearchOptionTableViewController.swift in Sources */,
 				3994D3EA26DA7684007D75D7 /* SearchViewController.swift in Sources */,
 				3994D3EE26DB9E11007D75D7 /* BookShelfTableViewCell.swift in Sources */,
 				3994D3EC26DB5B60007D75D7 /* SearchTableViewCell.swift in Sources */,

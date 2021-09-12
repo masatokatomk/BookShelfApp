@@ -93,11 +93,6 @@ class BookShelfViewController: UIViewController, UITableViewDelegate, UITableVie
         navigationController?.pushViewController(searchVC, animated: true)
         
     }
-    
-    
-    
-    
-    
-    
+
 }
 

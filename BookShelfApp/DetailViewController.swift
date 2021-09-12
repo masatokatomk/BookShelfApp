@@ -60,7 +60,7 @@ class DetailViewController: UIViewController {
             
             do {
                 
-                let deleteImageUrl = URL(string:  userData[self.bookShelfIndexPath].imageURL)
+                let deleteImageUrl = URL(string: userData[self.bookShelfIndexPath].imageURL)
                 let deleteImagePath = deleteImageUrl?.path
                 
                 if deleteImagePath != nil {

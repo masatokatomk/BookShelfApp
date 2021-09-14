@@ -149,6 +149,8 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
         let currentOffsetY = scrollView.contentOffset.y
         let maximumOffset = scrollView.contentSize.height - scrollView.frame.height
         let distanceToBottom = maximumOffset - currentOffsetY
+        
+        // distanceToBottomは(スクロールできるコンテンツの高さーコンテンツを見ているviewの高さ-基準点から見たコンテンツを見ているviewの左上のy座標)を算出している。これはスクロールできるコンテンツの最下端と基準点から見たコンテンツを見ているviewの左下のy座標の距離。
         if(distanceToBottom < 500 && self.loading == true){
             
             if page < pageCountAll {

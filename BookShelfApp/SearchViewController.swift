@@ -45,15 +45,18 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
         
         //bookSearchBarに何も入力されてない場合はreturnキーは押せない。
         bookSearchBar.enablesReturnKeyAutomatically = true
-        bookSearchBar.placeholder = "検索(タイトル)"
         
-        switchStatus = userDefaults.bool(forKey: "switchStatus")
+        print("検索画面viewDidLoad")
         
     }
     
     override func viewWillAppear(_ animated: Bool) {
         
         switchStatus = userDefaults.bool(forKey: "switchStatus")
+        
+        bookSearchBar.placeholder = "検索(タイトル、著者、isbnコード)"
+        
+        print("検索画面viewWillAppear")
         
     }
     

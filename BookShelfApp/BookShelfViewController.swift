@@ -22,17 +22,12 @@ class BookShelfViewController: UIViewController, UITableViewDelegate, UITableVie
         bookShelfTableView.delegate = self
         bookShelfTableView.dataSource = self
         
-        let userData = realm.objects(User.self)
-        print("🟥全てのデータ_viewDidLoad\(userData)")
-        
-        bookShelfTableView.reloadData()
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         
         let userData = realm.objects(User.self)
-        print("🟥全てのデータ_viewWillAppear\(userData)")
+        print("🔺全てのデータ_viewWillAppear\(userData)")
         bookShelfTableView.reloadData()
         
     }

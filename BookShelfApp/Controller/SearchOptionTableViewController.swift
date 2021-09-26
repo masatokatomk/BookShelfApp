@@ -19,14 +19,7 @@ class SearchOptionTableViewController: UITableViewController {
         
         searchOptionTableView.register(UINib(nibName: "SearchOptionTableViewCell", bundle: nil), forCellReuseIdentifier: "OptionCell")
         
-        
-        
-        
-        
-        
     }
-    
-    
     
     override func numberOfSections(in tableView: UITableView) -> Int {
         

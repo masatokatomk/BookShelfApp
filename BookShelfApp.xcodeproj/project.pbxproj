@@ -62,6 +62,42 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		390AA7502700BE22006E1212 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				3994D3E526DA704F007D75D7 /* User.swift */,
+				3994D3EF26DBBBCE007D75D7 /* GetImageByUrl.swift */,
+				3927F26F26EDC1D600374821 /* RakutenBooksApiUrlString.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		390AA7512700BE30006E1212 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				3994D3D726DA6744007D75D7 /* Main.storyboard */,
+				3927F27626EE46B900374821 /* SearchOptionTableViewCell.xib */,
+				3994D3ED26DB9E11007D75D7 /* BookShelfTableViewCell.swift */,
+				3994D3EB26DB5B60007D75D7 /* SearchTableViewCell.swift */,
+				3994D3DA26DA6748007D75D7 /* Assets.xcassets */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		390AA7522700BE40006E1212 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				3994D3D126DA6744007D75D7 /* AppDelegate.swift */,
+				3994D3D326DA6744007D75D7 /* SceneDelegate.swift */,
+				3994D3D526DA6744007D75D7 /* BookShelfViewController.swift */,
+				3994D3E926DA7684007D75D7 /* SearchViewController.swift */,
+				3927F27326EDE52600374821 /* SearchOptionTableViewController.swift */,
+				3994D3F126DBD440007D75D7 /* DetailViewController.swift */,
+				3927F27526EE46B900374821 /* SearchOptionTableViewCell.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
 		3994D3C526DA6743007D75D7 = {
 			isa = PBXGroup;
 			children = (
@@ -83,21 +119,9 @@
 		3994D3D026DA6744007D75D7 /* BookShelfApp */ = {
 			isa = PBXGroup;
 			children = (
-				3994D3D126DA6744007D75D7 /* AppDelegate.swift */,
-				3994D3D326DA6744007D75D7 /* SceneDelegate.swift */,
-				3994D3D526DA6744007D75D7 /* BookShelfViewController.swift */,
-				3994D3E926DA7684007D75D7 /* SearchViewController.swift */,
-				3927F27326EDE52600374821 /* SearchOptionTableViewController.swift */,
-				3994D3F126DBD440007D75D7 /* DetailViewController.swift */,
-				3994D3ED26DB9E11007D75D7 /* BookShelfTableViewCell.swift */,
-				3994D3EB26DB5B60007D75D7 /* SearchTableViewCell.swift */,
-				3927F27526EE46B900374821 /* SearchOptionTableViewCell.swift */,
-				3927F27626EE46B900374821 /* SearchOptionTableViewCell.xib */,
-				3994D3E526DA704F007D75D7 /* User.swift */,
-				3994D3EF26DBBBCE007D75D7 /* GetImageByUrl.swift */,
-				3927F26F26EDC1D600374821 /* RakutenBooksApiUrlString.swift */,
-				3994D3D726DA6744007D75D7 /* Main.storyboard */,
-				3994D3DA26DA6748007D75D7 /* Assets.xcassets */,
+				390AA7502700BE22006E1212 /* Model */,
+				390AA7512700BE30006E1212 /* View */,
+				390AA7522700BE40006E1212 /* Controller */,
 				3994D3DC26DA6748007D75D7 /* LaunchScreen.storyboard */,
 				3994D3DF26DA6748007D75D7 /* Info.plist */,
 			);
